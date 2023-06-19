@@ -17,12 +17,14 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.MethodIntrospector;
 import org.springframework.core.annotation.AnnotatedElementUtils;
+import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 类 XxlJobAutoRegister
@@ -109,8 +111,14 @@ public class XxlJobAutoRegister implements ApplicationListener<ApplicationReadyE
         xxlJobInfo.setJobGroup(xxlJobGroup.getId());
         xxlJobInfo.setJobDesc(xxlJobAuto.jobDesc());
         xxlJobInfo.setAuthor(xxlJobAuto.author());
-        xxlJobInfo.setScheduleType("CRON");
-        xxlJobInfo.setScheduleConf(xxlJobAuto.cron());
+        if (StringUtils.hasText(xxlJobAuto.cron())) {
+            xxlJobInfo.setScheduleType("CRON");
+            xxlJobInfo.setScheduleConf(xxlJobAuto.cron());
+        } else {
+            xxlJobInfo.setScheduleType("FIX_RATE");
+            // 时间
+            xxlJobInfo.setScheduleConf(String.valueOf(TimeUnit.SECONDS.convert(xxlJobAuto.scheduleConf(), xxlJobAuto.timeUnit())));
+        }
         xxlJobInfo.setGlueType("BEAN");
         xxlJobInfo.setExecutorHandler(xxlJob.value());
         xxlJobInfo.setExecutorRouteStrategy(xxlJobAuto.executorRouteStrategy());

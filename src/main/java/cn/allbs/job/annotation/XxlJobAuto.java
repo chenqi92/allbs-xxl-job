@@ -4,6 +4,7 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 自动注册注解
@@ -35,7 +36,7 @@ public @interface XxlJobAuto {
     /**
      * cron 表达式
      */
-    String cron();
+    String cron() default "";
 
     /**
      * 执行器任务参数
@@ -66,4 +67,14 @@ public @interface XxlJobAuto {
      * 调度状态 0 停止 1运行
      */
     int triggerStatus() default 0;
+
+    /**
+     * 固定速度调用时调用值 如果cron为空时使用此配置
+     */
+    long scheduleConf() default 1;
+
+    /**
+     * 固定速度时调用速度的单位, 默认为秒
+     */
+    TimeUnit timeUnit() default TimeUnit.SECONDS;
 }
