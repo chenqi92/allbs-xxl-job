@@ -70,7 +70,7 @@ public class JobGroupServiceImpl implements JobGroupService {
     @Override
     public boolean preciselyCheck() {
         List<XxlJobGroup> jobGroup = getJobGroup();
-        Optional<XxlJobGroup> has = jobGroup.stream().filter(xxlJobGroup -> xxlJobGroup.getAppname().equals(xxlJobProperties.getExecutor().getAppname()) && xxlJobGroup.getTitle().equals("执行器" + xxlJobProperties.getExecutor().getAppname())).findAny();
+        Optional<XxlJobGroup> has = jobGroup.stream().filter(xxlJobGroup -> xxlJobGroup.getAppname().equals(xxlJobProperties.getExecutor().getAppname())).findAny();
         return has.isPresent();
     }
 
