@@ -13,4 +13,14 @@ public class XxlAdminProperties {
      */
     private String address;
 
+    /**
+     * 用户名(自动注册使用)
+     */
+    private String username;
+
+    /**
+     * 密码(自动注册使用)
+     */
+    private String password;
+
 }

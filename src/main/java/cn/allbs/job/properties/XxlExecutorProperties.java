@@ -2,6 +2,8 @@ package cn.allbs.job.properties;
 
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * 执行器配置
  *
@@ -45,5 +47,15 @@ public class XxlExecutorProperties {
      * 执行器日志保存天数 [选填] ：值大于3时生效，启用执行器Log文件定期清理功能，否则不生效；
      */
     private Integer logRetentionDays = 30;
+
+    /**
+     * 是否自动注册(为0则自动注册)
+     */
+    private Integer autoRegister = 0;
+
+    /**
+     * 手动注册地址列表
+     */
+    private List<String> manualAddressList;
 
 }
