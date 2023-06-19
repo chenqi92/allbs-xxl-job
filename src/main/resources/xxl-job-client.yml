@@ -19,6 +19,5 @@ xxl:
       # 是否自动注册 0为自动注册， 1为手动注册
       auto-register: ${XXL_JOB_EXECUTOR_AUTO:0}
       # 手动注册列表
-      manual-address-list:
-        - http://127.0.0.1:9999
+      manual-address-list: ${XXL_JOB_MANUAL_ADDRESS_LIST:http://127.0.0.1:9999,http://127.0.0.1:8888}
 

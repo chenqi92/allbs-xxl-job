@@ -1,12 +1,9 @@
 package cn.allbs.job.service.impl;
 
-import cn.allbs.common.constant.StringPool;
 import cn.allbs.job.model.XxlJobGroup;
 import cn.allbs.job.properties.XxlJobProperties;
 import cn.allbs.job.service.JobGroupService;
 import cn.allbs.job.service.JobLoginService;
-import cn.hutool.core.collection.CollUtil;
-import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
 import cn.hutool.json.JSONArray;
@@ -15,6 +12,7 @@ import cn.hutool.json.JSONUtil;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 import java.time.LocalDate;
@@ -58,10 +56,10 @@ public class JobGroupServiceImpl implements JobGroupService {
 
         httpRequest.form("addressType", xxlJobProperties.getExecutor().getAutoRegister());
         if (xxlJobProperties.getExecutor().getAutoRegister().equals(1)) {
-            if (CollUtil.isEmpty(xxlJobProperties.getExecutor().getManualAddressList())) {
+            if (!StringUtils.hasText(xxlJobProperties.getExecutor().getManualAddressList())) {
                 throw new RuntimeException("手动录入模式下,执行器地址列表不能为空");
             }
-            httpRequest.form("addressList", StrUtil.join(StringPool.COMMA, xxlJobProperties.getExecutor().getManualAddressList()));
+            httpRequest.form("addressList", xxlJobProperties.getExecutor().getManualAddressList());
         }
 
         HttpResponse response = httpRequest.cookie(jobLoginService.getCookie()).execute();

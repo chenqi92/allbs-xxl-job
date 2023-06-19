@@ -54,8 +54,8 @@ public class XxlExecutorProperties {
     private Integer autoRegister = 0;
 
     /**
-     * 手动注册地址列表
+     * 手动注册地址列表（以逗号分割）
      */
-    private List<String> manualAddressList;
+    private String manualAddressList;
 
 }
