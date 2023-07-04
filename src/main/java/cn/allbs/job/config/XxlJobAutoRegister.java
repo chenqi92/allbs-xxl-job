@@ -7,7 +7,8 @@ import cn.allbs.job.service.JobGroupService;
 import cn.allbs.job.service.JobInfoService;
 import cn.hutool.core.collection.CollUtil;
 import com.xxl.job.core.handler.annotation.XxlJob;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -32,11 +33,12 @@ import java.util.concurrent.TimeUnit;
  * @author ChenQi
  * @date 2023/6/19
  */
-@Slf4j
 @Configuration(proxyBeanMethods = false)
 @EnableAutoConfiguration
 public class XxlJobAutoRegister implements ApplicationListener<ApplicationReadyEvent>,
         ApplicationContextAware {
+
+    private static final Logger log = LoggerFactory.getLogger(XxlJobAutoRegister.class);
 
     @Resource
     private JobGroupService jobGroupService;

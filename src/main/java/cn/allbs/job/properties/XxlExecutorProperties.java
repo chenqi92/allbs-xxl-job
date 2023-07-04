@@ -1,15 +1,10 @@
 package cn.allbs.job.properties;
 
-import lombok.Data;
-
-import java.util.List;
-
 /**
  * 执行器配置
  *
  * @author ChenQi
  */
-@Data
 public class XxlExecutorProperties {
 
     /**
@@ -58,4 +53,149 @@ public class XxlExecutorProperties {
      */
     private String manualAddressList;
 
+    public XxlExecutorProperties() {
+    }
+
+    public String getAppname() {
+        return this.appname;
+    }
+
+    public String getAddress() {
+        return this.address;
+    }
+
+    public String getIp() {
+        return this.ip;
+    }
+
+    public Integer getPort() {
+        return this.port;
+    }
+
+    public String getAccessToken() {
+        return this.accessToken;
+    }
+
+    public String getLogPath() {
+        return this.logPath;
+    }
+
+    public Integer getLogRetentionDays() {
+        return this.logRetentionDays;
+    }
+
+    public Integer getAutoRegister() {
+        return this.autoRegister;
+    }
+
+    public String getManualAddressList() {
+        return this.manualAddressList;
+    }
+
+    public void setAppname(String appname) {
+        this.appname = appname;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
+
+    public void setPort(Integer port) {
+        this.port = port;
+    }
+
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+    }
+
+    public void setLogPath(String logPath) {
+        this.logPath = logPath;
+    }
+
+    public void setLogRetentionDays(Integer logRetentionDays) {
+        this.logRetentionDays = logRetentionDays;
+    }
+
+    public void setAutoRegister(Integer autoRegister) {
+        this.autoRegister = autoRegister;
+    }
+
+    public void setManualAddressList(String manualAddressList) {
+        this.manualAddressList = manualAddressList;
+    }
+
+    public boolean equals(final Object o) {
+        if (o == this) return true;
+        if (!(o instanceof XxlExecutorProperties)) return false;
+        final XxlExecutorProperties other = (XxlExecutorProperties) o;
+        if (!other.canEqual((Object) this)) return false;
+        final Object this$appname = this.getAppname();
+        final Object other$appname = other.getAppname();
+        if (this$appname == null ? other$appname != null : !this$appname.equals(other$appname)) return false;
+        final Object this$address = this.getAddress();
+        final Object other$address = other.getAddress();
+        if (this$address == null ? other$address != null : !this$address.equals(other$address)) return false;
+        final Object this$ip = this.getIp();
+        final Object other$ip = other.getIp();
+        if (this$ip == null ? other$ip != null : !this$ip.equals(other$ip)) return false;
+        final Object this$port = this.getPort();
+        final Object other$port = other.getPort();
+        if (this$port == null ? other$port != null : !this$port.equals(other$port)) return false;
+        final Object this$accessToken = this.getAccessToken();
+        final Object other$accessToken = other.getAccessToken();
+        if (this$accessToken == null ? other$accessToken != null : !this$accessToken.equals(other$accessToken))
+            return false;
+        final Object this$logPath = this.getLogPath();
+        final Object other$logPath = other.getLogPath();
+        if (this$logPath == null ? other$logPath != null : !this$logPath.equals(other$logPath)) return false;
+        final Object this$logRetentionDays = this.getLogRetentionDays();
+        final Object other$logRetentionDays = other.getLogRetentionDays();
+        if (this$logRetentionDays == null ? other$logRetentionDays != null : !this$logRetentionDays.equals(other$logRetentionDays))
+            return false;
+        final Object this$autoRegister = this.getAutoRegister();
+        final Object other$autoRegister = other.getAutoRegister();
+        if (this$autoRegister == null ? other$autoRegister != null : !this$autoRegister.equals(other$autoRegister))
+            return false;
+        final Object this$manualAddressList = this.getManualAddressList();
+        final Object other$manualAddressList = other.getManualAddressList();
+        if (this$manualAddressList == null ? other$manualAddressList != null : !this$manualAddressList.equals(other$manualAddressList))
+            return false;
+        return true;
+    }
+
+    protected boolean canEqual(final Object other) {
+        return other instanceof XxlExecutorProperties;
+    }
+
+    public int hashCode() {
+        final int PRIME = 59;
+        int result = 1;
+        final Object $appname = this.getAppname();
+        result = result * PRIME + ($appname == null ? 43 : $appname.hashCode());
+        final Object $address = this.getAddress();
+        result = result * PRIME + ($address == null ? 43 : $address.hashCode());
+        final Object $ip = this.getIp();
+        result = result * PRIME + ($ip == null ? 43 : $ip.hashCode());
+        final Object $port = this.getPort();
+        result = result * PRIME + ($port == null ? 43 : $port.hashCode());
+        final Object $accessToken = this.getAccessToken();
+        result = result * PRIME + ($accessToken == null ? 43 : $accessToken.hashCode());
+        final Object $logPath = this.getLogPath();
+        result = result * PRIME + ($logPath == null ? 43 : $logPath.hashCode());
+        final Object $logRetentionDays = this.getLogRetentionDays();
+        result = result * PRIME + ($logRetentionDays == null ? 43 : $logRetentionDays.hashCode());
+        final Object $autoRegister = this.getAutoRegister();
+        result = result * PRIME + ($autoRegister == null ? 43 : $autoRegister.hashCode());
+        final Object $manualAddressList = this.getManualAddressList();
+        result = result * PRIME + ($manualAddressList == null ? 43 : $manualAddressList.hashCode());
+        return result;
+    }
+
+    public String toString() {
+        return "XxlExecutorProperties(appname=" + this.getAppname() + ", address=" + this.getAddress() + ", ip=" + this.getIp() + ", port=" + this.getPort() + ", accessToken=" + this.getAccessToken() + ", logPath=" + this.getLogPath() + ", logRetentionDays=" + this.getLogRetentionDays() + ", autoRegister=" + this.getAutoRegister() + ", manualAddressList=" + this.getManualAddressList() + ")";
+    }
 }
