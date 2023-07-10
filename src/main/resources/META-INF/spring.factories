@@ -1,4 +1,7 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  cn.allbs.job.config.XxlJobClientConfiguration
+  cn.allbs.job.config.XxlJobClientConfiguration,\
+  cn.allbs.job.service.impl.JobGroupServiceImpl,\
+  cn.allbs.job.service.impl.JobInfoServiceImpl,\
+  cn.allbs.job.service.impl.JobLoginServiceImpl
 
 
